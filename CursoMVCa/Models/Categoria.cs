@@ -13,7 +13,9 @@ public class Categoria
         [Display(Name = "Descrição")]
         [Required(ErrorMessage ="O Campo Descrição é obrigatorio.")]
         public string Descricao { get; set; }
-        public List<Produto> Produtos { get; set; }
+
+        //evitar erro circular
+        //public List<Produto> Produtos { get; set; }
 
     }
 }
