@@ -8,10 +8,8 @@ namespace CursoMVCa.Models
 {
     public class Context : DbContext
     {
-        public DbSet<Categoria> categorias { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Produto> Produtos { get; set; } 
-
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

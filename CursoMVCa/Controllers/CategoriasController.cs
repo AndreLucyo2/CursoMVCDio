@@ -21,7 +21,7 @@ namespace CursoMVCa.Controllers
         // GET: Categorias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.categorias.ToListAsync());
+            return View(await _context.Categorias.ToListAsync());
         }
 
         // GET: Categorias/Details/5
@@ -33,7 +33,7 @@ namespace CursoMVCa.Controllers
             }
 
             //Faz GET para cer se existe:
-            var categoria = await _context.categorias
+            var categoria = await _context.Categorias
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (categoria == null)
             {
@@ -74,7 +74,7 @@ namespace CursoMVCa.Controllers
                 return NotFound();
             }
 
-            var categoria = await _context.categorias.FindAsync(id);
+            var categoria = await _context.Categorias.FindAsync(id);
             if (categoria == null)
             {
                 return NotFound();
@@ -126,7 +126,7 @@ namespace CursoMVCa.Controllers
                 return NotFound();
             }
 
-            var categoria = await _context.categorias
+            var categoria = await _context.Categorias
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (categoria == null)
             {
@@ -141,8 +141,8 @@ namespace CursoMVCa.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categoria = await _context.categorias.FindAsync(id);
-            _context.categorias.Remove(categoria);
+            var categoria = await _context.Categorias.FindAsync(id);
+            _context.Categorias.Remove(categoria);
 
             //Faz o commit o banco de dados
             await _context.SaveChangesAsync();
@@ -152,7 +152,7 @@ namespace CursoMVCa.Controllers
 
         private bool CategoriaExists(int id)
         {
-            return _context.categorias.Any(e => e.Id == id);
+            return _context.Categorias.Any(e => e.Id == id);
         }
     }
 }
